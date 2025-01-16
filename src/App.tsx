@@ -1,6 +1,6 @@
 // escribo r + f  + c + e => rfce + enter para crear el componente
 
-import { useState,ChangeEvent } from "react";
+import { useState } from "react";
 
 import "./App.css";
 import MiFooter from "./components/mi-footer";
@@ -10,7 +10,7 @@ import MiHeader from "./components/mi-header";
 function App() {
   const [nombre, setNombre] = useState("");
 
-  function manejarCambio(event:ChangeEvent<HTMLInputElement>) {
+  function manejarCambio(event:React.ChangeEvent<HTMLInputElement>) {
     setNombre(event.target.value);
   }
 
@@ -25,6 +25,16 @@ function App() {
           value={nombre}
           onChange={manejarCambio}
         />
+        {/* <input
+          type="text"
+          placeholder="Escribe tu nombre"
+          value={nombre}
+          onChange={(evento) => {
+            setNombre(evento.target.value);
+            console.log(evento);
+            let miNuevoNombre = "Nuevo nombre"
+          }}
+        /> */}
       </main>
       <MiFooter />
     </>
