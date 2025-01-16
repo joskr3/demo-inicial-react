@@ -1,47 +1,50 @@
-import React, { useState } from "react";
+import React from "react";
 
-function MiInput() {
-  const [nombre, setNombre] = useState("");
-  const [edad, setEdad] = useState(0);
-  const [equipoFavorito, setEquipoFavorito] = useState("");
+interface IMiInputProps {
+  nombre: string;
+  edad: number;
+  equipoFavorito: string;
+  mostrarSaludo: React.JSX.Element;
+  cambiarNombre?: React.Dispatch<React.SetStateAction<string>>;
+  cambiareEdad?: React.Dispatch<React.SetStateAction<number>>;
+  cambiarEquipoFavorito?: React.Dispatch<React.SetStateAction<string>>;
+}
 
-  function manejarCambioNombre(event: React.ChangeEvent<HTMLInputElement>) {
-    setNombre(event.target.value);
-  }
-  function manejarCambioEdad(event: React.ChangeEvent<HTMLInputElement>) {
-    setEdad(parseInt(event.target.value));
-  }
-  function manejarCambioEquipoFavorito(
-    event: React.ChangeEvent<HTMLInputElement>
-  ) {
-    setEquipoFavorito(event.target.value);
-  }
+function MisInputs(props: IMiInputProps) {
+
+  const {
+    nombre,
+    edad,
+    equipoFavorito,
+    cambiarNombre,
+    cambiareEdad,
+    cambiarEquipoFavorito,
+    mostrarSaludo,
+  } = props;
+  
   return (
     <main>
-      <h1>
-        Hola,{nombre} !!!, tengo {edad} , mi equipo favorito es:{" "}
-        {equipoFavorito}
-      </h1>
+      {mostrarSaludo}
       <input
         type="text"
         placeholder="Escribe tu nombre"
         value={nombre}
-        onChange={manejarCambioNombre}
+        onChange={() => cambiarNombre}
       />
       <input
         type="number"
         placeholder="Escribe tu edad"
         value={edad}
-        onChange={manejarCambioEdad}
+        onChange={() => cambiareEdad}
       />
       <input
         type="text"
         placeholder="Escribe tu equipo favorito"
         value={equipoFavorito}
-        onChange={manejarCambioEquipoFavorito}
+        onChange={() => cambiarEquipoFavorito}
       />
     </main>
   );
 }
 
-export default MiInput;
+export default MisInputs;
