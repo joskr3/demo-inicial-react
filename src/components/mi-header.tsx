@@ -1,4 +1,4 @@
-// r + a + f + c + e -> rafce ->  arrow function export component (conponente flecha funcional react)
+// r + a + f + c + e -> rafce + enter ->  arrow function export component (conponente flecha funcional react)
 
 const MiHeader = () => {
   return (
